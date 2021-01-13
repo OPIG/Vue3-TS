@@ -4,6 +4,7 @@
     <router-link to="/about">About</router-link> |
     <router-link to="/ref">Pref</router-link> |
     <router-link to="/reactive">Preactive</router-link> |
+    <router-link to="/torefs">torefs</router-link> |
   </div>
   <router-view/>
 </template>

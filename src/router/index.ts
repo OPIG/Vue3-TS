@@ -30,6 +30,11 @@ const routes: Array<RouteRecordRaw> = [
     path: '/preactive',
     alias: '/reactive',
     component: () => import(/* webpackChunkName 'preactive' */ '@/views/Practices-reactive.vue')
+  },
+  {
+    path: '/prtorefs',
+    alias: '/torefs',
+    component: () => import (/* webpackChunkName 'torefs' */ '@/views/Practices-reactive-toRefs.vue')
   }
 ]
 

@@ -11,21 +11,25 @@
       </li>
     </ul>
     <div>点中了[{{ data.selectGirl }}]</div>
-    <Input v-model="data.inputValueP"/>
-    <p>{{ data.inputValueP}}</p>
   </div>
 </template>
 
 <script lang="ts">
 import { reactive } from 'vue'
-import Input from '@/components/Input.vue'
+
+// 减少类型推断
+interface DataProps {
+  girls: string[];
+  selectGirl: string;
+  selectGirlFun: (index: number) => void;
+}
+
 export default {
   name: 'reactive',
   setup() {
-    const data = reactive({
+    const data: DataProps= reactive({
       girls: ['南宫婉', '莫姑娘', '陈姑娘'],
       selectGirl: '',
-      inputValueP: 'test',
       selectGirlFun: (index: number) => {
         data.selectGirl = data.girls[index]
       }
@@ -33,6 +37,8 @@ export default {
 
     return {
       data
+      // template中代码中引用还是需要data.作为前缀，如data.girls
+      // 此处data改写为扩展运算符...data template中代码去掉data. 不好使
     }
   }
 }
